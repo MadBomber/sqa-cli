@@ -1,0 +1,108 @@
+{
+  "portfolio_name": "Tech Growth Portfolio",
+  "created_date": "2023-06-15",
+  "last_updated": "2024-11-08",
+  "total_invested": 152475.00,
+  "positions": [
+    {
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "shares": 250,
+      "average_purchase_price": 188.40,
+      "total_cost_basis": 47100.00,
+      "purchases": [
+        {
+          "date": "2023-06-15",
+          "shares": 150,
+          "price": 185.50,
+          "cost": 27825.00,
+          "notes": "Initial tech position"
+        },
+        {
+          "date": "2024-01-15",
+          "shares": 100,
+          "price": 192.75,
+          "cost": 19275.00,
+          "notes": "Added on dip"
+        }
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "shares": 125,
+      "average_purchase_price": 365.32,
+      "total_cost_basis": 45665.00,
+      "purchases": [
+        {
+          "date": "2023-07-10",
+          "shares": 75,
+          "price": 335.20,
+          "cost": 25140.00,
+          "notes": "Cloud computing play"
+        },
+        {
+          "date": "2024-03-20",
+          "shares": 50,
+          "price": 410.50,
+          "cost": 20525.00,
+          "notes": "Averaging up"
+        }
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc. (Class A)",
+      "shares": 350,
+      "average_purchase_price": 135.41,
+      "total_cost_basis": 47445.00,
+      "purchases": [
+        {
+          "date": "2023-08-22",
+          "shares": 200,
+          "price": 127.80,
+          "cost": 25560.00,
+          "notes": "AI and search dominance"
+        },
+        {
+          "date": "2024-06-10",
+          "shares": 150,
+          "price": 145.90,
+          "cost": 21885.00,
+          "notes": "Post-split addition"
+        }
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "company_name": "Tesla Inc.",
+      "shares": 50,
+      "average_purchase_price": 245.30,
+      "total_cost_basis": 12265.00,
+      "purchases": [
+        {
+          "date": "2023-09-05",
+          "shares": 50,
+          "price": 245.30,
+          "cost": 12265.00,
+          "notes": "EV market leader"
+        }
+      ]
+    }
+  ],
+  "allocation_strategy": {
+    "target_percentages": {
+      "AAPL": 30,
+      "MSFT": 30,
+      "GOOGL": 30,
+      "TSLA": 10
+    },
+    "rebalance_frequency": "quarterly",
+    "risk_tolerance": "moderate-aggressive"
+  },
+  "performance_metrics": {
+    "inception_date": "2023-06-15",
+    "tracking_benchmark": "QQQ",
+    "notes": "Focused on large-cap tech with growth potential"
+  }
+}

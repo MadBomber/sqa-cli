@@ -1,0 +1,8 @@
+ticker,shares,purchase_date,purchase_price,cost_basis,notes
+AAPL,150,2023-06-15,185.50,27825.00,Initial tech position
+MSFT,75,2023-07-10,335.20,25140.00,Cloud computing play
+GOOGL,200,2023-08-22,127.80,25560.00,AI and search dominance
+TSLA,50,2023-09-05,245.30,12265.00,EV market leader
+AAPL,100,2024-01-15,192.75,19275.00,Added on dip
+MSFT,50,2024-03-20,410.50,20525.00,Averaging up
+GOOGL,150,2024-06-10,145.90,21885.00,Post-split addition
