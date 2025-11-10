@@ -25,6 +25,13 @@ PATH
       toml-rb
       tty-table
 
+PATH
+  remote: .
+  specs:
+    sqa-cli (0.1.0)
+      debug_me (~> 1.0)
+      sqa (~> 0.0.27)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -208,6 +215,7 @@ PLATFORMS
   arm64-darwin-25
 
 DEPENDENCIES
+  bundler (~> 2.0)
   debug_me!
   minitest (~> 5.20)
   minitest-reporters (~> 1.6)
@@ -215,9 +223,7 @@ DEPENDENCIES
   rubocop (~> 1.50)
   rubocop-minitest (~> 0.35)
   sqa!
-
-RUBY VERSION
-   ruby 3.4.7p58
+  sqa-cli!
 
 BUNDLED WITH
    2.7.2

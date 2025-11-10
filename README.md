@@ -13,10 +13,31 @@ A modular CLI for financial and stock market analysis using the SQA gem. Feature
 
 ## Installation
 
-Install dependencies:
+### From RubyGems (Recommended)
+
+Once published, install the gem:
+
+```bash
+gem install sqa-cli
+```
+
+### From Source (Development)
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/madbomber/sqa-cli.git
+cd sqa-cli
+bundle install
+```
+
+### Local Development
+
+For local development with the SQA gem:
 
 ```bash
 bundle install
+# The Gemfile points to the local SQA gem for development
 ```
 
 ## Usage
@@ -211,6 +232,41 @@ end
 4. Push to the branch
 5. Create a Pull Request
 
+## Building and Releasing the Gem
+
+### Build the Gem
+
+```bash
+rake build
+```
+
+This creates `pkg/sqa-cli-X.Y.Z.gem`.
+
+### Install Locally
+
+```bash
+rake install
+```
+
+### Release to RubyGems
+
+Ensure you're authenticated with RubyGems:
+
+```bash
+gem signin
+```
+
+Then release:
+
+```bash
+rake release
+```
+
+This will:
+1. Create a git tag for the version
+2. Build the gem
+3. Push to rubygems.org
+
 ## License
 
-TBD
+MIT License - see [LICENSE.txt](LICENSE.txt) for details

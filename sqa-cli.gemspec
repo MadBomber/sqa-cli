@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dewayne VanHoozer"]
   spec.email         = ["dvanhoozer@gmail.com"]
 
-  spec.summary       = "Command-line interface for financial market analysis"
+  spec.summary       = "Command-line interface for Simple Qualitive Analysis (SQA)"
   spec.description   = "A modular CLI for financial and stock market analysis using the SQA gem. Features include backtesting, pattern discovery, genetic programming, portfolio optimization, and real-time market analysis."
   spec.homepage      = "https://github.com/madbomber/sqa-cli"
   spec.license       = "MIT"

@@ -2,21 +2,11 @@
 
 source "https://rubygems.org"
 
-ruby ">= 3.0.0"
+# Specify your gem's dependencies in sqa-cli.gemspec
+gemspec
 
-# SQA gem - Simple Qualitative Analysis for financial markets
-# Point to local development version
+# For local development, override the sqa gem with local path
 gem "sqa", path: "../sqa/main"
 
+# For local development, use debug_me from GitHub
 gem "debug_me", github: "madbomber/debug_me"
-
-group :development, :test do
-  gem "minitest", "~> 5.20"
-  gem "minitest-reporters", "~> 1.6"
-  gem "rake", "~> 13.0"
-end
-
-group :development do
-  gem "rubocop", "~> 1.50", require: false
-  gem "rubocop-minitest", "~> 0.35", require: false
-end

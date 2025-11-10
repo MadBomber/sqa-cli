@@ -11,6 +11,11 @@
 /test/version_tmp/
 /tmp/
 
+# Gem build artifacts
+*.gem
+*.gemspec.lock
+Gemfile.lock
+
 # RDoc
 /.yardoc/
 /doc/

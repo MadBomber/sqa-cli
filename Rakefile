@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler/gem_tasks"
 require "rake/testtask"
 
 Rake::TestTask.new(:test) do |t|
@@ -32,3 +33,8 @@ task :console do
   ARGV.clear
   IRB.start
 end
+
+# Gem-related tasks (provided by bundler/gem_tasks):
+# rake build    - Build sqa-cli-X.Y.Z.gem into the pkg directory
+# rake install  - Build and install sqa-cli-X.Y.Z.gem into system gems
+# rake release  - Create tag vX.Y.Z and build and push sqa-cli-X.Y.Z.gem to rubygems.org
