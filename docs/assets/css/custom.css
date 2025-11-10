@@ -1,0 +1,246 @@
+/* Custom CSS for SQA CLI Documentation */
+
+/* Root Variables */
+:root {
+  --sqa-primary: #2563eb;
+  --sqa-secondary: #0ea5e9;
+  --sqa-accent: #06b6d4;
+  --sqa-success: #10b981;
+  --sqa-warning: #f59e0b;
+  --sqa-danger: #ef4444;
+}
+
+/* Code Blocks */
+.highlight pre {
+  border-left: 3px solid var(--sqa-primary);
+  padding-left: 1rem;
+}
+
+/* Inline Code */
+code {
+  background-color: rgba(37, 99, 235, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Admonitions */
+.admonition {
+  border-left: 4px solid var(--sqa-primary);
+}
+
+.admonition.note {
+  border-left-color: var(--sqa-secondary);
+}
+
+.admonition.tip {
+  border-left-color: var(--sqa-success);
+}
+
+.admonition.warning {
+  border-left-color: var(--sqa-warning);
+}
+
+.admonition.danger {
+  border-left-color: var(--sqa-danger);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+table thead tr {
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] table th,
+[data-md-color-scheme="slate"] table td {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+table tbody tr:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Command Examples */
+.command-example {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--sqa-accent);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="slate"] .command-example {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.badge-success {
+  background-color: var(--sqa-success);
+  color: white;
+}
+
+.badge-warning {
+  background-color: var(--sqa-warning);
+  color: white;
+}
+
+.badge-danger {
+  background-color: var(--sqa-danger);
+  color: white;
+}
+
+.badge-info {
+  background-color: var(--sqa-secondary);
+  color: white;
+}
+
+/* Navigation Icons */
+.md-nav__link--active {
+  color: var(--sqa-primary) !important;
+}
+
+/* Links */
+a {
+  color: var(--sqa-primary);
+}
+
+a:hover {
+  color: var(--sqa-secondary);
+}
+
+/* Header Anchors */
+h1 .headerlink,
+h2 .headerlink,
+h3 .headerlink,
+h4 .headerlink,
+h5 .headerlink,
+h6 .headerlink {
+  color: var(--sqa-accent);
+}
+
+/* Search Box */
+.md-search__input {
+  border-radius: 4px;
+}
+
+.md-search__input:focus {
+  border-color: var(--sqa-primary);
+}
+
+/* Keyboard Keys */
+kbd {
+  background-color: #f8f9fa;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  font-family: 'Roboto Mono', monospace;
+}
+
+[data-md-color-scheme="slate"] kbd {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Command Syntax Highlighting */
+.language-bash .na {
+  color: var(--sqa-primary);
+}
+
+.language-bash .s {
+  color: var(--sqa-success);
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+.md-footer-meta {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print Styles */
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer {
+    display: none;
+  }
+}
+
+/* Custom Containers */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 8px;
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  color: var(--sqa-primary);
+}
+
+/* Mermaid Diagrams */
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Code Copy Button */
+.md-clipboard {
+  color: var(--sqa-primary);
+}
+
+.md-clipboard:hover {
+  color: var(--sqa-secondary);
+}
+
+/* Version Warning */
+.version-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--sqa-warning);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}

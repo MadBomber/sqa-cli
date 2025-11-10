@@ -6,10 +6,10 @@ A modular CLI for financial and stock market analysis using the SQA gem. Feature
 
 ## Quick Links
 
-- **[QUICKSTART.md](QUICKSTART.md)** - Get started quickly, see what works now
-- **[USAGE_EXAMPLES.md](USAGE_EXAMPLES.md)** - Comprehensive command examples
-- **[STATUS.md](STATUS.md)** - Detailed project status and next steps
-- **[data/README.md](data/README.md)** - Sample data documentation
+- **[Quick Start](quickstart.md)** - Get started quickly, see what works now
+- **[Usage Examples](usage.md)** - Comprehensive command examples
+- **[Project Status](status.md)** - Detailed project status and next steps
+- **[Sample Data](data.md)** - Sample data documentation
 
 ## Installation
 

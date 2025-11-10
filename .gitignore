@@ -43,5 +43,8 @@
 # Debug files
 *.log
 
+# MkDocs
+site/
+
 # Gemfile.lock (uncomment for gems, keep for applications)
 # Gemfile.lock
