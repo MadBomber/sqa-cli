@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# SQA CLI - Simple Qualitative Analysis Command Line Interface
+#
+# A unified interface for financial market analysis using the SQA gem.
+#
+# Usage:
+#   sqa-cli <command> [options]
+#
+# Commands:
+#   help         Show help message
+#   version      Show version
+#   backtest     Run strategy backtests (coming soon)
+#   genetic      Evolve strategy parameters (coming soon)
+#   pattern      Discover trading patterns (coming soon)
+#   analyze      Market analysis tools (coming soon)
+#   kbs          Knowledge-based strategy (coming soon)
+#   stream       Real-time streaming (coming soon)
+#   optimize     Portfolio optimization (coming soon)
+#
+# Examples:
+#   sqa-cli version
+#   sqa-cli help
+#   sqa-cli backtest --ticker AAPL --strategy RSI
+#
+
+require_relative '../lib/sqa/cli/dispatcher'
+
+exit SQA::CLI::Dispatcher.run(ARGV)
