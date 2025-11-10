@@ -25,6 +25,6 @@
 #   sqa-cli backtest --ticker AAPL --strategy RSI
 #
 
-require_relative '../lib/sqa/cli/dispatcher'
+require_relative '../lib/sqa-cli'
 
 exit SQA::CLI::Dispatcher.run(ARGV)

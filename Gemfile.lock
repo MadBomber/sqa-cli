@@ -28,7 +28,7 @@ PATH
 PATH
   remote: .
   specs:
-    sqa-cli (0.1.0)
+    sqa-cli (0.0.1)
       debug_me (~> 1.0)
       sqa (~> 0.0.27)
 

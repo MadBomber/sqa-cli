@@ -28,7 +28,7 @@ task all: [:test, :rubocop]
 
 desc "Run console with loaded environment"
 task :console do
-  require_relative "lib/sqa"
+  require_relative "lib/sqa-cli"
   require "irb"
   ARGV.clear
   IRB.start

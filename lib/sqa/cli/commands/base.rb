@@ -83,19 +83,14 @@ module SQA
         end
 
         def load_stock
-          # Load SQA on first use
-          require 'sqa' unless defined?(SQA)
-
           debug_me { "Loading stock data for #{@options[:ticker]}..." } if @options[:verbose]
-
-          # Try calling SQA.init if it exists, otherwise skip it (config is auto-initialized)
-          SQA.init if SQA.respond_to?(:init) && !defined?(SQA::Stock)
 
           stock = SQA::Stock.new(ticker: @options[:ticker])
           debug_me { "Loaded #{stock.df.data.height} days of price history" } if @options[:verbose]
           stock
         rescue => e
           puts "Error loading stock data: #{e.message}"
+          puts e.backtrace if @options[:verbose]
           exit 1
         end
 
