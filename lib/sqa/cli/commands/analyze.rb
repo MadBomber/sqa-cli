@@ -79,6 +79,8 @@ module SQA
         def analyze_fpop(stock)
           print_section "FPL (Future Period Loss/Profit) Analysis"
 
+          puts stock.inspect
+
           prices = stock.df["adj_close_price"].to_a
           analysis = SQA::FPOP.fpl_analysis(prices, fpop: @options[:fpop_periods])
 
@@ -119,13 +121,17 @@ module SQA
 
           regime = SQA::MarketRegime.detect(stock, window: @options[:regime_window])
 
+          # Format values - handle both numbers and symbols
+          strength_str = regime[:strength].is_a?(Numeric) ? regime[:strength].round(2).to_s : regime[:strength].to_s.upcase
+          trend_str = regime[:trend].is_a?(Numeric) ? "#{regime[:trend].round(2)}%" : regime[:trend].to_s.upcase
+
           puts <<~HEREDOC
 
             Current Market Regime:
               Type: #{regime[:type].to_s.upcase}
               Volatility: #{regime[:volatility].to_s.upcase}
-              Strength: #{regime[:strength].round(2)}
-              Trend: #{regime[:trend].round(2)}%
+              Strength: #{strength_str}
+              Trend: #{trend_str}
           HEREDOC
 
           # Show regime history
@@ -138,6 +144,10 @@ module SQA
 
         def analyze_seasonal(stock)
           print_section "Seasonal Pattern Analysis"
+
+
+          debug_me{[ :stock ]}
+
 
           seasonal = SQA::SeasonalAnalyzer.analyze(stock)
 

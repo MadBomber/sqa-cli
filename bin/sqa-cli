@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'debug_me'
+include DebugMe
+
 # SQA CLI - Simple Qualitative Analysis Command Line Interface
 #
 # A unified interface for financial market analysis using the SQA gem.

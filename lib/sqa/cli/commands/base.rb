@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
 require 'optparse'
-require 'debug_me'
 
 module SQA
   module CLI
     module Commands
       # Base class for all CLI commands
       class Base
-        include DebugMe
-
         attr_reader :options, :args
 
         def initialize(args)
@@ -83,10 +80,10 @@ module SQA
         end
 
         def load_stock
-          debug_me { "Loading stock data for #{@options[:ticker]}..." } if @options[:verbose]
+          debug_me{[ '@options' ]}
 
           stock = SQA::Stock.new(ticker: @options[:ticker])
-          debug_me { "Loaded #{stock.df.data.height} days of price history" } if @options[:verbose]
+          debug_me{[ 'stock.df.data.height' ]}
           stock
         rescue => e
           puts "Error loading stock data: #{e.message}"
