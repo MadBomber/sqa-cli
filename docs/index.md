@@ -1,21 +1,53 @@
-# SQA CLI
+<div align="center">
+  <h1>SQA CLI - Simple Qualitative Analysis</h1>
 
-Simple Qualitative Analysis Command Line Interface
+  <p>Command-line interface for financial market analysis, backtesting, and portfolio optimization.<br/>
+      Part of the <a href="https://github.com/MadBomber/sqa">SQA</a> (Simple Qualitative Analysis) ecosystem.</p>
+</div>
 
-A modular CLI for financial and stock market analysis using the SQA gem. Features include backtesting, pattern discovery, genetic programming, portfolio optimization, and real-time market analysis.
+<table>
+<tr>
+<td width="30%" valign="middle" align="center">
+  <img src="assets/images/sqa.jpg" alt="SQA - Simple Qualitative Analysis" width="80%">
+</td>
+<td width="70%" valign="top">
+
+<h2>Features</h2>
+🎯 **7 Analysis Commands** - Comprehensive market analysis toolkit<br/>
+⚡ **Fast Execution** - Built on the powerful SQA gem<br/>
+📊 **Multiple Strategies** - RSI, MACD, Bollinger Bands, and more<br/>
+🧬 **Genetic Programming** - Evolve optimal strategy parameters<br/>
+🔍 **Pattern Discovery** - Find profitable trading patterns<br/>
+🧠 **Knowledge-Based Strategy** - RETE inference engine for trading rules<br/>
+📈 **Portfolio Optimization** - Modern portfolio theory and risk management<br/>
+🌊 **Real-Time Streaming** - Simulate live market data<br/>
+🎨 **Clean Interface** - Intuitive command structure<br/>
+📚 **Well Documented** - Complete guides and API reference<br/>
+
+</td>
+</tr>
+</table>
 
 ## Quick Links
 
-- **[Quick Start](quickstart.md)** - Get started quickly, see what works now
-- **[Usage Examples](usage.md)** - Comprehensive command examples
-- **[Project Status](status.md)** - Detailed project status and next steps
-- **[Sample Data](data.md)** - Sample data documentation
+- 📘 **[Quick Start](quickstart.md)** - Get started quickly, see what works now
+- 💡 **[Usage Examples](usage.md)** - Comprehensive command examples
+- 📊 **[Project Status](status.md)** - Detailed project status and next steps
+- 📁 **[Sample Data](data.md)** - Sample data documentation
 
 ## Installation
 
-Install dependencies:
+### From RubyGems (Recommended)
 
 ```bash
+gem install sqa-cli
+```
+
+### From Source (Development)
+
+```bash
+git clone https://github.com/madbomber/sqa-cli.git
+cd sqa-cli
 bundle install
 ```
 
@@ -116,16 +148,21 @@ bundle exec rake all
 bundle exec rake console
 ```
 
-## About SQA
+## SQA Ecosystem
 
-SQA (Simple Qualitative Analysis) is a Ruby gem for financial market analysis, providing tools for:
-- Technical analysis and backtesting
-- Pattern recognition and discovery
-- Portfolio optimization
-- Real-time market data streaming
-- Knowledge-based trading strategies
+`sqa-cli` is part of the SQA project:
 
-This CLI provides a unified interface to all SQA features.
+- **[sqa](https://github.com/MadBomber/sqa)** - Core trading strategy framework and analysis library
+- **[sqa-tai](https://github.com/MadBomber/sqa-tai)** - 136 technical analysis indicators (TA-Lib wrapper)
+- **[sqa-cli](https://github.com/MadBomber/sqa-cli)** - Command-line interface (this tool)
+
+SQA provides a complete Ruby ecosystem for financial analysis:
+
+- 📊 Technical analysis and backtesting
+- 🔍 Pattern recognition and discovery
+- 📈 Portfolio optimization and risk management
+- 🌊 Real-time market data streaming
+- 🧠 Knowledge-based trading strategies with AI integration
 
 ## Architecture
 
@@ -205,12 +242,26 @@ end
 
 ## Contributing
 
+Bug reports and pull requests are welcome at https://github.com/MadBomber/sqa-cli.
+
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
 5. Create a Pull Request
 
 ## License
 
-TBD
+The gem is available as open source under the terms of the [MIT License](https://github.com/MadBomber/sqa-cli/blob/main/LICENSE.txt).
+
+## Acknowledgments
+
+- [SQA](https://github.com/MadBomber/sqa) - The underlying analysis framework
+- [SQA-TAI](https://github.com/MadBomber/sqa-tai) - Technical analysis indicators
+- [TA-Lib](https://ta-lib.org/) - Technical analysis library
+
+## Support
+
+- 🐛 Issues: [GitHub Issues](https://github.com/MadBomber/sqa-cli/issues)
+- 📚 Docs: [Documentation Site](https://madbomber.github.io/sqa-cli)
+- 💬 Discussions: [GitHub Discussions](https://github.com/MadBomber/sqa-cli/discussions)
