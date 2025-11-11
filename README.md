@@ -1,15 +1,41 @@
-# SQA CLI
+<div align="center">
+  <h1>SQA CLI - Simple Qualitative Analysis</h1>
 
-Simple Qualitative Analysis Command Line Interface
+  <p>Command-line interface for financial market analysis, backtesting, and portfolio optimization.<br/>
+      Part of the <a href="https://github.com/MadBomber/sqa">SQA</a> (Simple Qualitative Analysis) ecosystem.</p>
+</div>
 
-A modular CLI for financial and stock market analysis using the SQA gem. Features include backtesting, pattern discovery, genetic programming, portfolio optimization, and real-time market analysis.
+<table>
+<tr>
+<td width="30%" valign="middle" align="center">
+    <img src="docs/assets/images/sqa.jpg" alt="Ruby Turns Information into Knowledge" width="80%">
+  <br/>
+</td>
+<td width="70%" valign="top">
+
+## Features
+
+- 🎯 **7 Analysis Commands** - Comprehensive market analysis toolkit
+- ⚡ **Fast Execution** - Built on the powerful SQA gem
+- 📊 **Multiple Strategies** - RSI, MACD, Bollinger Bands, and more
+- 🧬 **Genetic Programming** - Evolve optimal strategy parameters
+- 🔍 **Pattern Discovery** - Find profitable trading patterns
+- 🧠 **Knowledge-Based Strategy** - RETE inference engine for trading rules
+- 📈 **Portfolio Optimization** - Modern portfolio theory and risk management
+- 🌊 **Real-Time Streaming** - Simulate live market data
+- 🎨 **Clean Interface** - Intuitive command structure
+- 📚 **Well Documented** - Full documentation at [madbomber.github.io/sqa-cli](https://madbomber.github.io/sqa-cli)
+
+</td>
+</tr>
+</table>
 
 ## Quick Links
 
-- **[QUICKSTART.md](QUICKSTART.md)** - Get started quickly, see what works now
-- **[USAGE_EXAMPLES.md](USAGE_EXAMPLES.md)** - Comprehensive command examples
-- **[STATUS.md](STATUS.md)** - Detailed project status and next steps
-- **[data/README.md](data/README.md)** - Sample data documentation
+- 📘 **[Quick Start Guide](QUICKSTART.md)** - Get started quickly, see what works now
+- 💡 **[Usage Examples](USAGE_EXAMPLES.md)** - Comprehensive command examples
+- 📊 **[Project Status](STATUS.md)** - Detailed project status and next steps
+- 📁 **[Sample Data](data/README.md)** - Sample data documentation
 
 ## Installation
 
@@ -137,16 +163,20 @@ bundle exec rake all
 bundle exec rake console
 ```
 
-## About SQA
+## SQA Ecosystem
 
-SQA (Simple Qualitative Analysis) is a Ruby gem for financial market analysis, providing tools for:
-- Technical analysis and backtesting
-- Pattern recognition and discovery
-- Portfolio optimization
-- Real-time market data streaming
-- Knowledge-based trading strategies
+`sqa-cli` is part of the SQA project:
 
-This CLI provides a unified interface to all SQA features.
+- **[sqa](https://github.com/MadBomber/sqa)** - Core trading strategy framework and analysis library
+- **[sqa-tai](https://github.com/MadBomber/sqa-tai)** - 136 technical analysis indicators (TA-Lib wrapper)
+- **[sqa-cli](https://github.com/MadBomber/sqa-cli)** - Command-line interface (this tool)
+
+SQA provides a complete Ruby ecosystem for financial analysis:
+- 📊 Technical analysis and backtesting
+- 🔍 Pattern recognition and discovery
+- 📈 Portfolio optimization and risk management
+- 🌊 Real-time market data streaming
+- 🧠 Knowledge-based trading strategies with AI integration
 
 ## Architecture
 
@@ -224,12 +254,22 @@ end
 
 3. The command is now available: `sqa-cli my_command --help`
 
+## Documentation
+
+Full documentation available at:
+- **Online**: [madbomber.github.io/sqa-cli](https://madbomber.github.io/sqa-cli)
+- **Getting Started**: [QUICKSTART.md](QUICKSTART.md)
+- **Examples**: [USAGE_EXAMPLES.md](USAGE_EXAMPLES.md)
+- **Architecture**: Detailed in this README
+
 ## Contributing
 
+Bug reports and pull requests are welcome at https://github.com/MadBomber/sqa-cli.
+
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
 5. Create a Pull Request
 
 ## Building and Releasing the Gem
@@ -269,4 +309,16 @@ This will:
 
 ## License
 
-MIT License - see [LICENSE.txt](LICENSE.txt) for details
+The gem is available as open source under the terms of the [MIT License](LICENSE.txt).
+
+## Acknowledgments
+
+- [SQA](https://github.com/MadBomber/sqa) - The underlying analysis framework
+- [SQA-TAI](https://github.com/MadBomber/sqa-tai) - Technical analysis indicators
+- [TA-Lib](https://ta-lib.org/) - Technical analysis library
+
+## Support
+
+- 🐛 Issues: [GitHub Issues](https://github.com/MadBomber/sqa-cli/issues)
+- 📚 Docs: [Documentation Site](https://madbomber.github.io/sqa-cli)
+- 💬 Discussions: [GitHub Discussions](https://github.com/MadBomber/sqa-cli/discussions)
