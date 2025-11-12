@@ -477,7 +477,7 @@ require 'debug_me'
 include DebugMe
 
 def my_method
-  debug_me { "Variable value: #{@var}" }
+  debug_me {[ '@var' ]}
 end
 ```
 

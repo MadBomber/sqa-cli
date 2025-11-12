@@ -82,6 +82,7 @@ module SQA
           puts stock.inspect
 
           prices = stock.df["adj_close_price"].to_a
+          dates = stock.df["timestamp"].to_a
           analysis = SQA::FPOP.fpl_analysis(prices, fpop: @options[:fpop_periods])
 
           puts <<~HEREDOC
@@ -93,7 +94,8 @@ module SQA
           # Show last 10 entries
           analysis.last(10).each_with_index do |result, idx|
             actual_idx = analysis.size - 10 + idx
-            puts "Index #{actual_idx}: #{result[:interpretation]}"
+            timestamp = dates[actual_idx]
+            puts "Index #{actual_idx} (#{timestamp}): #{result[:interpretation]}"
             puts "  Direction: #{result[:direction]}, Magnitude: #{result[:magnitude].round(2)}%, Risk: #{result[:risk].round(2)}%"
           end
 
@@ -111,7 +113,8 @@ module SQA
           else
             quality_indices.last(5).each do |idx|
               result = analysis[idx]
-              puts "  Index #{idx}: #{result[:interpretation]}"
+              timestamp = dates[idx]
+              puts "  Index #{idx} (#{timestamp}): #{result[:interpretation]}"
             end
           end
         end
@@ -144,10 +147,6 @@ module SQA
 
         def analyze_seasonal(stock)
           print_section "Seasonal Pattern Analysis"
-
-
-          debug_me{[ :stock ]}
-
 
           seasonal = SQA::SeasonalAnalyzer.analyze(stock)
 

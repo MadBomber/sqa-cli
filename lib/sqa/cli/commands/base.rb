@@ -80,10 +80,7 @@ module SQA
         end
 
         def load_stock
-          debug_me{[ '@options' ]}
-
           stock = SQA::Stock.new(ticker: @options[:ticker])
-          debug_me{[ 'stock.df.data.height' ]}
           stock
         rescue => e
           puts "Error loading stock data: #{e.message}"
