@@ -8,7 +8,7 @@ module SQA
   module CLI
     # Main CLI dispatcher class
     class Dispatcher
-      COMMANDS = %w[help version analyze backtest genetic pattern kbs stream optimize].freeze
+      COMMANDS = %w[help version indicators show analyze backtest genetic pattern kbs stream optimize].freeze
 
       def self.run(args)
         new(args).execute
@@ -70,6 +70,8 @@ module SQA
             version      Show version information
 
           Analysis Commands:
+            indicators   List all available TA-Lib technical indicators
+            show         Display stock price data with technical indicators
             analyze      Run various analysis methods (FPOP, regime, seasonal)
             backtest     Run strategy backtests on historical data
             genetic      Evolve strategy parameters using genetic programming

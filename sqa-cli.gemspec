@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   # Runtime dependencies
   spec.add_dependency "sqa", "~> 0.0.27"
   spec.add_dependency "debug_me", "~> 1.0"
+  spec.add_dependency "tty-table", "~> 0.12"
 
   # Development dependencies
   spec.add_development_dependency "bundler", "~> 2.0"
