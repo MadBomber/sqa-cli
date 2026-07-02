@@ -44,12 +44,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'tty-table', '~> 0.12'
 
   # Development dependencies
-  spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'flay'
   spec.add_development_dependency 'flog'
   spec.add_development_dependency 'minitest', '~> 5.20'
   spec.add_development_dependency 'minitest-reporters', '~> 1.6'
   spec.add_development_dependency 'racc' # flog/flay transitively need this on Ruby 4+
+  spec.add_development_dependency 'reek' # code smell gate (rake reek_check)
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 1.50'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.35'

@@ -1,0 +1,9 @@
+1	lib/sqa/cli/commands/analyze.rb
+1	lib/sqa/cli/commands/backtest.rb
+3	lib/sqa/cli/commands/genetic.rb
+3	lib/sqa/cli/commands/indicators.rb
+4	lib/sqa/cli/commands/kbs.rb
+3	lib/sqa/cli/commands/optimize.rb
+2	lib/sqa/cli/commands/pattern.rb
+6	lib/sqa/cli/commands/show.rb
+5	lib/sqa/cli/commands/stream.rb
