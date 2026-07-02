@@ -22,7 +22,6 @@ module SQA
           strategy
         end
 
-
         def add_aggressive_buy_rule(strategy)
           strategy.add_rule :aggressive_buy do
             on :rsi, { level: :oversold }
@@ -34,7 +33,6 @@ module SQA
           end
         end
 
-
         def add_conservative_sell_rule(strategy)
           strategy.add_rule :conservative_sell do
             on :rsi, { level: :overbought }
@@ -44,7 +42,6 @@ module SQA
             end
           end
         end
-
 
         def add_volume_breakout_rule(strategy)
           strategy.add_rule :volume_breakout do
@@ -56,7 +53,6 @@ module SQA
           end
         end
 
-
         def create_minimal_strategy
           strategy = SQA::Strategy::KBS.new(load_defaults: false)
 
@@ -65,7 +61,6 @@ module SQA
 
           strategy
         end
-
 
         def add_simple_rsi_rule(strategy)
           strategy.add_rule :simple_rsi do
@@ -76,7 +71,6 @@ module SQA
           end
         end
 
-
         def add_simple_macd_rule(strategy)
           strategy.add_rule :simple_macd do
             on :macd, { crossover: :bullish }
@@ -86,7 +80,6 @@ module SQA
           end
         end
       end
-
 
       # Builds the OpenStruct data vector (prices, volumes, indicators) that
       # KBS strategies evaluate. Extracted from Kbs because vector construction
@@ -105,11 +98,9 @@ module SQA
           )
         end
 
-
         def base_vector_fields(stock, prices, highs, lows)
           { prices: prices, volumes: stock.df['volume'].to_a, highs: highs, lows: lows }
         end
-
 
         def indicator_fields(prices, highs, lows)
           {
@@ -117,7 +108,6 @@ module SQA
             macd: SQAI.macd(prices)
           }.merge(stochastic_and_bollinger_fields(prices, highs, lows))
         end
-
 
         def stochastic_and_bollinger_fields(prices, highs, lows)
           stoch = SQAI.stoch(highs, lows, prices)
@@ -157,7 +147,6 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           opts.on('-r', '--rules TYPE', %w[default custom minimal], 'Rule set to use:',
                   '  default, custom, minimal') do |rules|
@@ -171,7 +160,6 @@ module SQA
           end
         end
 
-
         def add_display_flags(opts)
           opts.on('--show-rules', 'Display loaded rules') do
             @options[:show_rules] = true
@@ -181,7 +169,6 @@ module SQA
             @options[:show_facts] = true
           end
         end
-
 
         def banner
           KBS_BANNER_TEXT
@@ -219,7 +206,6 @@ module SQA
           end
         end
 
-
         def maybe_print_rules(strategy)
           return unless @options[:show_rules]
 
@@ -227,14 +213,12 @@ module SQA
           strategy.print_rules
         end
 
-
         def maybe_print_facts(strategy)
           return unless @options[:show_facts]
 
           puts "\nAsserted Facts:"
           strategy.print_facts
         end
-
 
         def maybe_run_backtest(stock, strategy)
           return unless @options[:backtest]

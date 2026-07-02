@@ -18,19 +18,16 @@ module SQA
           end
         end
 
-
         def print_stock_risk_metrics(stock, returns, ticker, risk_free_rate)
           puts "\n#{ticker}:"
           print_stock_return_stats(returns)
           print_stock_risk_ratios(returns, stock.df['adj_close_price'].to_a, risk_free_rate)
         end
 
-
         def print_stock_return_stats(returns)
           puts "  Annual Return: #{(returns.sum / returns.size * 252 * 100).round(2)}%"
           puts "  Volatility: #{(returns.std_dev * Math.sqrt(252) * 100).round(2)}%"
         end
-
 
         def print_stock_risk_ratios(returns, prices, risk_free_rate)
           sharpe = SQA::RiskManager.sharpe_ratio(returns, risk_free_rate: risk_free_rate)
@@ -42,7 +39,6 @@ module SQA
           puts "  VaR (95%): #{(var * 100).round(2)}%"
         end
       end
-
 
       # Loads SQA::Stock objects for a list of tickers and derives their returns
       # matrix. Extracted from Optimize because data loading is a distinct
@@ -65,7 +61,6 @@ module SQA
           stocks
         end
 
-
         def load_one_stock(ticker, verbose)
           puts "  Loading #{ticker}..." if verbose
           SQA.init unless defined?(SQA::Stock)
@@ -75,7 +70,6 @@ module SQA
           nil
         end
 
-
         def calculate_returns_matrix(stocks)
           stocks.map do |stock|
             prices = stock.df['adj_close_price'].to_a
@@ -83,7 +77,6 @@ module SQA
           end
         end
       end
-
 
       # Prints the final optimization result (allocation weights and expected
       # performance). Extracted from Optimize because this reporting concern is
@@ -96,7 +89,6 @@ module SQA
           print_expected_performance(result)
         end
 
-
         def print_allocation(result, tickers)
           puts "\nOptimal Portfolio Allocation:"
           puts '-' * 50
@@ -106,7 +98,6 @@ module SQA
           end
         end
 
-
         def print_expected_performance(result)
           puts "\nExpected Performance:"
           puts "  Return: #{(result[:return] * 100).round(2)}% (annualized)"
@@ -114,7 +105,6 @@ module SQA
           puts "  Sharpe Ratio: #{result[:sharpe].round(2)}" if result[:sharpe]
         end
       end
-
 
       # Prints the efficient frontier table and its maximum-Sharpe point.
       # Extracted from Optimize because this reporting concern is independent of
@@ -131,7 +121,6 @@ module SQA
           print_max_sharpe_point(frontier)
         end
 
-
         def print_frontier_table(frontier)
           puts "\nEfficient Frontier (#{frontier.size} points):"
           puts '-' * 50
@@ -141,13 +130,11 @@ module SQA
           frontier.each { |point| print_frontier_point(point) }
         end
 
-
         def print_frontier_point(point)
           return_str = (point[:return] * 100).round(2).to_s.ljust(12)
           volatility_str = (point[:volatility] * 100).round(2).to_s.ljust(12)
           puts "#{return_str} #{volatility_str} #{point[:sharpe].round(2)}"
         end
-
 
         def print_max_sharpe_point(frontier)
           max_sharpe_point = frontier.max_by { |p| p[:sharpe] }
@@ -157,7 +144,6 @@ module SQA
           puts "  Sharpe: #{max_sharpe_point[:sharpe].round(2)}"
         end
       end
-
 
       OPTIMIZE_METHODS = %w[sharpe variance risk_parity efficient_frontier].freeze
 
@@ -188,12 +174,10 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           add_portfolio_options(opts)
           add_risk_options(opts)
         end
-
 
         def add_portfolio_options(opts)
           opts.on('--tickers LIST', Array,
@@ -206,7 +190,6 @@ module SQA
             @options[:method] = method
           end
         end
-
 
         def add_risk_options(opts)
           opts.on('--risk-free-rate RATE', Float, 'Risk-free rate (default: 0.02)') do |rate|
@@ -221,7 +204,6 @@ module SQA
             @options[:risk_metrics] = true
           end
         end
-
 
         def banner
           OPTIMIZE_BANNER_TEXT
@@ -253,7 +235,6 @@ module SQA
           [stocks, calculate_returns_matrix(stocks)]
         end
 
-
         def maybe_show_risk_metrics(stocks, returns_matrix)
           return unless @options[:risk_metrics]
 
@@ -261,13 +242,11 @@ module SQA
           show_risk_metrics(stocks, returns_matrix, @options[:tickers], @options[:risk_free_rate])
         end
 
-
         def print_optimization_intro
           puts "\nTickers: #{@options[:tickers].join(', ')}"
           puts "Method: #{@options[:method]}"
           puts
         end
-
 
         def run_optimization(returns_matrix)
           case @options[:method]
@@ -279,14 +258,12 @@ module SQA
           end
         end
 
-
         def optimize_sharpe(returns_matrix)
           SQA::PortfolioOptimizer.maximum_sharpe(
             returns_matrix,
             risk_free_rate: @options[:risk_free_rate]
           )
         end
-
 
         def unknown_optimization_method
           puts "Unknown optimization method: #{@options[:method]}"

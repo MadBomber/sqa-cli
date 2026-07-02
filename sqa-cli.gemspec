@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
 
   # Runtime dependencies
   spec.add_dependency 'debug_me', '~> 1.0'
-  spec.add_dependency 'sqa', '~> 0.0.27'
+  spec.add_dependency 'sqa'
   spec.add_dependency 'tty-table', '~> 0.12'
 
   # Development dependencies
@@ -52,7 +52,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'racc' # flog/flay transitively need this on Ruby 4+
   spec.add_development_dependency 'reek' # code smell gate (rake reek_check)
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rubocop', '~> 1.50'
+  spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.35'
   spec.add_development_dependency 'simplecov'
 end

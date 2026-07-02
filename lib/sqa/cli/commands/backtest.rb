@@ -13,15 +13,18 @@ module SQA
         module_function
 
         def print_comparison_table(results_data)
+          # Kept as format() (not the pre-padded literal RuboCop suggests) to stay
+          # parallel with print_comparison_row and keep the column widths visible.
+          # rubocop:disable Style/RedundantFormat
           puts format(
             "\n%<strategy>-20s %<return>10s %<sharpe>10s %<drawdown>10s %<win_rate>10s %<trades>10s",
             strategy: 'Strategy', return: 'Return%', sharpe: 'Sharpe', drawdown: 'Drawdown%',
             win_rate: 'WinRate%', trades: 'Trades'
           )
+          # rubocop:enable Style/RedundantFormat
           puts '-' * 70
           results_data.each { |r| print_comparison_row(r) }
         end
-
 
         def print_comparison_row(result)
           puts format(
@@ -30,13 +33,11 @@ module SQA
           )
         end
 
-
         def print_best_strategy(results_data)
           best = results_data.first
           puts "\nBest Strategy: #{best[:strategy]} (#{best[:return].round(2)}% return)"
         end
       end
-
 
       # Runs a backtest for every known strategy and collects the results.
       # Extracted from Backtest because this is a distinct data-gathering
@@ -52,7 +53,6 @@ module SQA
           end.compact
         end
 
-
         def run_comparison_backtest(stock, strategy_name, run_config)
           backtest = SQA::Backtest.new(
             stock: stock,
@@ -66,7 +66,6 @@ module SQA
           puts "  Warning: #{strategy_name} failed: #{e.message}" if run_config[:verbose]
           nil
         end
-
 
         def comparison_result(strategy_name, results)
           {
@@ -107,7 +106,6 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           opts.on('-s', '--strategy NAME', STRATEGIES, 'Strategy to backtest:',
                   "  #{STRATEGIES.join(', ')}") do |strategy|
@@ -121,7 +119,6 @@ module SQA
           end
         end
 
-
         def add_cost_options(opts)
           opts.on('-c', '--capital AMOUNT', Float, 'Initial capital (default: 10000)') do |capital|
             @options[:capital] = capital
@@ -131,7 +128,6 @@ module SQA
             @options[:commission] = commission
           end
         end
-
 
         def banner
           BACKTEST_BANNER_TEXT
@@ -166,7 +162,6 @@ module SQA
           print_results(results)
         end
 
-
         def compare_strategies(stock)
           print_section 'Comparing All Strategies'
 
@@ -180,7 +175,6 @@ module SQA
           print_comparison_table(results_data)
           print_best_strategy(results_data)
         end
-
 
         STRATEGY_CLASSES = {
           'RSI' => 'SQA::Strategy::RSI',

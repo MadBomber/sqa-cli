@@ -14,7 +14,6 @@ module SQA
         assert_match(/Usage:/, output.join)
       end
 
-
       def test_run_with_help_command
         output = capture_io do
           result = SQA::CLI::Dispatcher.run(['help'])
@@ -23,7 +22,6 @@ module SQA
 
         assert_match(/Usage:/, output.join)
       end
-
 
       def test_run_with_help_flag
         output = capture_io do
@@ -34,7 +32,6 @@ module SQA
         assert_match(/Usage:/, output.join)
       end
 
-
       def test_run_with_version_command
         output = capture_io do
           result = SQA::CLI::Dispatcher.run(['version'])
@@ -44,7 +41,6 @@ module SQA
         assert_match(/version/, output.join)
       end
 
-
       def test_run_with_version_flag
         output = capture_io do
           result = SQA::CLI::Dispatcher.run(['--version'])
@@ -53,7 +49,6 @@ module SQA
 
         assert_match(/version/, output.join)
       end
-
 
       def test_run_with_unknown_command
         output = capture_io do

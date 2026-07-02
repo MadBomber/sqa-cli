@@ -22,7 +22,6 @@ module SQA
           print_pattern_backtest_results(results)
         end
 
-
         def run_pattern_backtest(strategy, stock)
           backtest = SQA::Backtest.new(
             stock: stock,
@@ -33,7 +32,6 @@ module SQA
 
           backtest.run
         end
-
 
         def print_pattern_backtest_results(results)
           puts 'Backtest Results:'
@@ -74,12 +72,10 @@ module SQA
           super.merge(PATTERN_DEFAULT_OPTIONS)
         end
 
-
         def add_command_options(opts)
           add_discovery_options(opts)
           add_output_options(opts)
         end
-
 
         def add_discovery_options(opts)
           opts.on('-g', '--min-gain PERCENT', Float, 'Minimum gain percent (default: 10.0)') do |gain|
@@ -94,7 +90,6 @@ module SQA
           add_frequency_options(opts)
         end
 
-
         def add_frequency_options(opts)
           opts.on('-m', '--min-frequency COUNT', Integer, 'Minimum pattern frequency (default: 3)') do |freq|
             @options[:min_frequency] = freq
@@ -104,7 +99,6 @@ module SQA
             @options[:inflection_window] = window
           end
         end
-
 
         def add_output_options(opts)
           opts.on('-n', '--max-patterns COUNT', Integer, 'Max patterns to display (default: 10)') do |max|
@@ -119,7 +113,6 @@ module SQA
             @options[:generate] = true
           end
         end
-
 
         def banner
           PATTERN_BANNER_TEXT
@@ -148,7 +141,6 @@ module SQA
           maybe_export_patterns(generator)
         end
 
-
         def print_pattern_parameters
           puts "\nParameters:"
           puts "  Minimum Gain: #{@options[:min_gain]}%"
@@ -156,7 +148,6 @@ module SQA
           puts "  Minimum Frequency: #{@options[:min_frequency]}"
           puts "  Inflection Window: #{@options[:inflection_window]} days"
         end
-
 
         def build_strategy_generator(stock)
           SQA::StrategyGenerator.new(
@@ -166,7 +157,6 @@ module SQA
             inflection_window: @options[:inflection_window]
           )
         end
-
 
         def discover_patterns(generator)
           print_section 'Discovering Patterns...'
@@ -180,14 +170,12 @@ module SQA
           patterns
         end
 
-
         def maybe_export_patterns(generator)
           return unless @options[:export]
 
           generator.export_patterns(@options[:export])
           puts "\nPatterns exported to: #{@options[:export]}"
         end
-
 
         def generate_strategies(generator, stock)
           print_section 'Generating Strategies from Top Patterns'

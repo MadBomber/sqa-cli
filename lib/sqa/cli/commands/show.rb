@@ -19,13 +19,11 @@ module SQA
           format('%8.2f', value)
         end
 
-
         def format_change(value)
           return '      -' if value.nil?
 
           format('%+7.2f', value)
         end
-
 
         def format_percent(value)
           return '      -' if value.nil?
@@ -33,14 +31,12 @@ module SQA
           format('%+7.2f', value)
         end
 
-
         def format_indicator_value(value)
           return '       -' if value.nil?
 
           format('%8.2f', value)
         end
       end
-
 
       # CSV export helper for Show's table data. Extracted from Show because
       # writing rows to disk is a distinct responsibility from building/rendering
@@ -55,12 +51,10 @@ module SQA
           end
         end
 
-
         def round_csv_row(row)
           row.map { |value| value.is_a?(Float) ? value.round(3) : value }
         end
       end
-
 
       # Builds table headers/rows (for both on-screen display and CSV export)
       # from precomputed price/indicator data. Extracted from Show because
@@ -73,7 +67,6 @@ module SQA
           total_rows = stock.df.data.height
           [0, total_rows - timeframe].max
         end
-
 
         def calculate_price_changes(prices)
           dollar_changes = []
@@ -88,14 +81,12 @@ module SQA
           [dollar_changes, percent_changes]
         end
 
-
         def price_change_at(prices, price, idx)
           return nil if idx.zero?
 
           prev_price = prices[idx - 1]
           [price - prev_price, ((price - prev_price) / prev_price) * 100]
         end
-
 
         def build_table_headers(indicators)
           headers = ['timestamp', 'Price', '$Change', '%Change']
@@ -106,7 +97,6 @@ module SQA
           end
           [headers, csv_headers]
         end
-
 
         def build_table_rows(table_data, indicators)
           rows = []
@@ -124,7 +114,6 @@ module SQA
           [rows, csv_rows]
         end
 
-
         def append_indicator_values(table_data, indicators, csv_row, display_row, idx)
           indicators.each do |indicator|
             value = table_data[:indicator_data][indicator][idx]
@@ -132,7 +121,6 @@ module SQA
             display_row << ShowFormatting.format_indicator_value(value)
           end
         end
-
 
         def csv_row_for(table_data, timestamp, idx)
           [
@@ -143,7 +131,6 @@ module SQA
           ]
         end
 
-
         def display_row_for(table_data, timestamp, idx)
           [
             timestamp.to_s,
@@ -153,7 +140,6 @@ module SQA
           ]
         end
       end
-
 
       # Looks up and invokes a TA-Lib indicator via SQAI, normalizing its return
       # shape. Extracted from Show because indicator lookup/invocation is a
@@ -172,7 +158,6 @@ module SQA
           fetch_indicator_values(stock, indicator_name, indicator, start_idx, timeframe)
         end
 
-
         def fetch_indicator_values(stock, indicator_name, indicator, start_idx, timeframe)
           closes = stock.df['adj_close_price'].to_a
           result = SQAI.send(indicator_name, closes)
@@ -183,7 +168,6 @@ module SQA
           warn "Error calculating #{indicator}: #{e.message}"
           Array.new(timeframe, nil)
         end
-
 
         def extract_indicator_series(result)
           # Extract the result (handle both single and multiple output indicators)
@@ -198,7 +182,6 @@ module SQA
           end
         end
       end
-
 
       # Static banner text for Show's --help output. Kept outside the class
       # body so it doesn't count against Show's class-length budget.
@@ -237,12 +220,10 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           add_display_options(opts)
           add_output_options(opts)
         end
-
 
         def add_display_options(opts)
           opts.on('-t', '--ticker SYMBOL', 'Stock ticker symbol (default: AAPL)') do |ticker|
@@ -256,7 +237,6 @@ module SQA
           add_indicators_option(opts)
         end
 
-
         def add_indicators_option(opts)
           opts.on('-i', '--indicators INDICATORS', Array,
                   'Comma-separated indicators (any TA-Lib indicator):',
@@ -265,13 +245,11 @@ module SQA
           end
         end
 
-
         def add_output_options(opts)
           opts.on('--csv FILE', 'Save table data to CSV file') do |file|
             @options[:csv] = file
           end
         end
-
 
         def banner
           SHOW_BANNER_TEXT
@@ -298,7 +276,6 @@ module SQA
           "#{@options[:ticker]} - #{company_name}"
         end
 
-
         def print_show_subheader
           indicators_str = if @options[:indicators].empty?
                              'No indicators'
@@ -314,7 +291,6 @@ module SQA
           HEREDOC
         end
 
-
         def display_table(stock)
           table_data = build_table_data(stock)
 
@@ -324,7 +300,6 @@ module SQA
           maybe_save_to_csv(csv_headers, csv_rows)
           render_table(headers, rows)
         end
-
 
         def build_table_data(stock)
           start_idx = timeframe_start_idx(stock, @options[:timeframe])
@@ -337,7 +312,6 @@ module SQA
             percent_changes: percent_changes, indicator_data: indicator_data }
         end
 
-
         def calculate_all_indicators(stock, start_idx)
           indicator_data = {}
           @options[:indicators].each do |indicator|
@@ -347,14 +321,12 @@ module SQA
           indicator_data
         end
 
-
         def maybe_save_to_csv(csv_headers, csv_rows)
           return unless @options[:csv]
 
           save_to_csv(csv_headers, csv_rows, @options[:csv])
           puts "\nData saved to #{@options[:csv]}"
         end
-
 
         def render_table(headers, rows)
           table = TTY::Table.new(headers, rows)

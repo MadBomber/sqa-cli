@@ -9,7 +9,6 @@ module SQA
         refute_nil SQA::CLI::VERSION
       end
 
-
       def test_version_format
         assert_match(/\d+\.\d+\.\d+/, SQA::CLI::VERSION)
       end

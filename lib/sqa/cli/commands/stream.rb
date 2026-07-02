@@ -22,7 +22,6 @@ module SQA
           print_last_signals(signals_received)
         end
 
-
         def print_signal_breakdown(signals_received)
           puts "\nSignal Breakdown:"
           %i[buy sell hold].each do |signal|
@@ -30,7 +29,6 @@ module SQA
             puts "  #{signal.to_s.upcase}: #{count}"
           end
         end
-
 
         def print_last_signals(signals_received)
           puts "\nLast 5 Signals:"
@@ -63,7 +61,6 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           opts.on('-s', '--strategies LIST', Array, 'Strategies to run (comma-separated)') do |strategies|
             @options[:strategies] = strategies
@@ -78,7 +75,6 @@ module SQA
             @options[:updates] = updates
           end
         end
-
 
         def banner
           STREAM_BANNER_TEXT
@@ -112,7 +108,6 @@ module SQA
           puts "  Simulated Updates: #{@options[:updates]}"
         end
 
-
         def build_stream
           strategy_classes = @options[:strategies].map do |name|
             resolve_strategy(name)
@@ -125,7 +120,6 @@ module SQA
           )
         end
 
-
         def attach_signal_callback(stream)
           signals_received = []
           stream.on_signal do |signal, data|
@@ -135,7 +129,6 @@ module SQA
           signals_received
         end
 
-
         def simulation_series(stock)
           prices = stock.df['adj_close_price'].to_a
           volumes = stock.df['volume'].to_a
@@ -143,7 +136,6 @@ module SQA
           start_idx = [prices.size - @options[:updates] - @options[:window], 0].max
           [prices[start_idx..], volumes[start_idx..]]
         end
-
 
         def simulate_updates(stream, sim_prices, sim_volumes)
           sim_prices.each_with_index do |price, idx|
@@ -153,13 +145,11 @@ module SQA
           end
         end
 
-
         def print_update_progress(price, volume, idx, total)
           return unless (idx % 10).zero? && @options[:verbose]
 
           puts "  Update #{idx + 1}/#{total}: Price=$#{price.round(2)}, Volume=#{volume}"
         end
-
 
         STRATEGY_CLASSES = {
           'RSI' => 'SQA::Strategy::RSI',

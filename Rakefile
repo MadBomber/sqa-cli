@@ -30,11 +30,9 @@ def flog_warn_threshold
   20.0
 end
 
-
 def flog_fail_threshold
   50.0
 end
-
 
 def build_flogger
   require 'flog'
@@ -43,7 +41,6 @@ def build_flogger
   flogger.flog(*Dir.glob('lib/**/*.rb'))
   flogger
 end
-
 
 def classify_flog_score(method, score, warnings, failures)
   return if method.end_with?('#none')
@@ -55,7 +52,6 @@ def classify_flog_score(method, score, warnings, failures)
   end
 end
 
-
 def flog_scores
   warnings = []
   failures = []
@@ -65,14 +61,12 @@ def flog_scores
   [warnings, failures]
 end
 
-
 def report_flog_warnings(warnings)
   return if warnings.empty?
 
   puts "\nFlog warnings (#{flog_warn_threshold}–#{flog_fail_threshold}) — target for future refactoring:"
   warnings.each { |v| puts "  #{v}" }
 end
-
 
 def report_flog_failures(failures)
   if failures.empty?
@@ -170,12 +164,10 @@ def print_quality_gate_banner(title)
   puts '=' * 60
 end
 
-
 def run_quality_gate(title, command)
   print_quality_gate_banner(title)
   system(command) ? :pass : :fail
 end
-
 
 def run_all_quality_gates
   {
@@ -186,7 +178,6 @@ def run_all_quality_gates
     reek: run_quality_gate('Quality Gate: Reek Smells', 'bundle exec rake reek_check')
   }
 end
-
 
 def print_quality_summary(results)
   print_quality_gate_banner('Quality Summary')

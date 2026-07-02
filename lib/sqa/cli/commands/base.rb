@@ -15,7 +15,6 @@ module SQA
           parse_options
         end
 
-
         def execute
           raise NotImplementedError, 'Subclass must implement #execute'
         end
@@ -29,7 +28,6 @@ module SQA
           }
         end
 
-
         def parse_options
           OptionParser.new do |opts|
             opts.banner = banner
@@ -41,7 +39,6 @@ module SQA
           puts "\nRun with --help for usage information."
           exit 1
         end
-
 
         def add_common_options(opts)
           opts.on('-t', '--ticker SYMBOL', 'Stock ticker symbol (default: AAPL)') do |ticker|
@@ -58,21 +55,17 @@ module SQA
           end
         end
 
-
         def add_command_options(_opts)
           # Override in subclasses
         end
-
 
         def banner
           "Usage: sqa-cli #{command_name} [options]"
         end
 
-
         def command_name
           self.class.name.split('::').last.downcase
         end
-
 
         def print_header(text)
           puts "\n#{'=' * 70}"
@@ -80,13 +73,11 @@ module SQA
           puts '=' * 70
         end
 
-
         def print_section(text)
           puts "\n#{'-' * 70}"
           puts text
           puts '-' * 70
         end
-
 
         def load_stock
           SQA::Stock.new(ticker: @options[:ticker])
@@ -96,20 +87,17 @@ module SQA
           exit 1
         end
 
-
         def print_results(results)
           puts "\nBacktest Results:"
           print_return_metrics(results)
           print_risk_metrics(results)
         end
 
-
         def print_return_metrics(results)
           puts "  Total Return: #{results.total_return.round(2)}%"
           puts "  Annualized Return: #{results.annualized_return.round(2)}%"
           puts "  Sharpe Ratio: #{results.sharpe_ratio.round(2)}"
         end
-
 
         def print_risk_metrics(results)
           puts "  Max Drawdown: #{results.max_drawdown.round(2)}%"

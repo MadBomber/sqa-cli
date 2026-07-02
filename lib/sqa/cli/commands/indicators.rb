@@ -59,13 +59,11 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           opts.on('-g', '--grouped', 'Group indicators by category') do
             @options[:grouped] = true
           end
         end
-
 
         def banner
           <<~BANNER
@@ -98,7 +96,6 @@ module SQA
           SQAI.methods(false).reject { |m| EXCLUDED_METHODS.include?(m) }.sort
         end
 
-
         def display_flat_list(indicators)
           puts "\nTotal: #{indicators.size} indicators\n\n"
 
@@ -109,7 +106,6 @@ module SQA
 
           puts "\nUse 'sqa-cli indicators --grouped' to see indicators organized by category."
         end
-
 
         def display_grouped_indicators(indicators)
           groups = categorize_indicators(indicators)
@@ -125,7 +121,6 @@ module SQA
           end
         end
 
-
         def categorize_indicators(indicators)
           grouped = CATEGORY_MATCHERS.transform_values do |matcher|
             indicators.select { |i| matches_category?(matcher, i) }
@@ -133,7 +128,6 @@ module SQA
 
           grouped.reject { |_, items| items.empty? }
         end
-
 
         def matches_category?(matcher, indicator)
           matcher.respond_to?(:call) ? matcher.call(indicator.to_s) : matcher.include?(indicator.to_s)

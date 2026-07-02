@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    sqa-cli (0.0.3)
+    sqa-cli (0.3.0)
       debug_me (~> 1.0)
-      sqa (~> 0.0.27)
+      sqa
       tty-table (~> 0.12)
 
 GEM
@@ -99,7 +99,7 @@ GEM
     http-2 (1.2.0)
     httpx (1.8.0)
       http-2 (>= 1.2.0)
-    json (2.16.0)
+    json (2.20.0)
     json-schema (5.1.0)
       addressable (~> 2.8)
     json_schemer (2.5.0)
@@ -129,9 +129,8 @@ GEM
     nenv (0.3.0)
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
-    ostruct (0.6.3)
-    parallel (1.27.0)
-    parser (3.3.10.0)
+    parallel (2.1.0)
+    parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
     pastel (0.8.0)
@@ -157,22 +156,22 @@ GEM
       pastel (~> 0.8.0)
       tty-spinner (~> 0.9.3)
       zeitwerk (~> 2.7)
-    regexp_parser (2.11.3)
+    regexp_parser (2.12.0)
     rexml (3.4.4)
-    rubocop (1.81.7)
+    rubocop (1.88.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
-      parallel (~> 1.10)
+      parallel (>= 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.47.1, < 2.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.48.0)
+    rubocop-ast (1.49.1)
       parser (>= 3.3.7.2)
-      prism (~> 1.4)
+      prism (~> 1.7)
     rubocop-minitest (0.38.2)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -218,9 +217,7 @@ GEM
       hashie
       kbs
       lite-statistics
-      logger
       nenv
-      ostruct
       polars-df
       redis
       regent
