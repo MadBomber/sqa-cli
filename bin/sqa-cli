@@ -2,7 +2,10 @@
 # frozen_string_literal: true
 
 require 'debug_me'
-include DebugMe
+
+class Object
+  include DebugMe
+end
 
 # SQA CLI - Simple Qualitative Analysis Command Line Interface
 #

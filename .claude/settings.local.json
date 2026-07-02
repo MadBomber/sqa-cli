@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(bundle install:*)",
+      "Bash(bundle exec rspec:*)",
+      "Bash(./bin/sqa-cli:*)",
+      "Bash(tree:*)",
+      "Bash(bundle exec rake test:*)",
+      "Bash(ruby:*)",
+      "Bash(cat:*)",
+      "Bash(bundle exec ruby:*)",
+      "Bash(bundle exec ./bin/sqa-cli analyze:*)",
+      "Bash(bundle exec ./bin/sqa-cli:*)",
+      "Bash(mkdocs build:*)",
+      "Bash(gem build:*)",
+      "Bash(gem spec:*)",
+      "Bash(rake:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
