@@ -40,6 +40,9 @@ Gem::Specification.new do |spec|
 
   # Runtime dependencies
   spec.add_dependency 'debug_me', '~> 1.0'
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'myway_config'  # XDG-aware configuration management (extends anyway_config)
+  spec.add_dependency 'nokogiri'
   spec.add_dependency 'sqa'
   spec.add_dependency 'tty-table', '~> 0.12'
 
@@ -55,4 +58,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.35'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'webmock'
 end

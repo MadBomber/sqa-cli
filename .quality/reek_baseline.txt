@@ -1,5 +1,6 @@
 1	lib/sqa/cli/commands/analyze.rb
 1	lib/sqa/cli/commands/backtest.rb
+2	lib/sqa/cli/commands/finviz.rb
 3	lib/sqa/cli/commands/genetic.rb
 3	lib/sqa/cli/commands/indicators.rb
 4	lib/sqa/cli/commands/kbs.rb

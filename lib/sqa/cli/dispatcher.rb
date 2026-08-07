@@ -7,7 +7,7 @@ module SQA
   module CLI
     # Main CLI dispatcher class
     class Dispatcher
-      COMMANDS = %w[help version indicators show analyze backtest genetic pattern kbs stream optimize].freeze
+      COMMANDS = %w[help version indicators show analyze backtest genetic pattern kbs stream optimize finviz].freeze
 
       HELP_TEXT = <<~HELP
         SQA CLI - Simple Qualitative Analysis Command Line Interface
@@ -31,6 +31,7 @@ module SQA
           kbs          Knowledge-based strategy using RETE inference
           stream       Simulate real-time price streaming
           optimize     Portfolio optimization and risk management
+          finviz       Show today's top gaining/losing stocks (via Finviz)
 
         Common Options:
           -h, --help      Show command-specific help
