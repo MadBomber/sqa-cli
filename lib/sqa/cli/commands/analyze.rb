@@ -27,7 +27,6 @@ module SQA
           print_fpop_quality_opportunities(analysis, dates)
         end
 
-
         def print_fpop_recent_entries(analysis, dates)
           analysis.last(10).each_with_index do |result, idx|
             actual_idx = analysis.size - 10 + idx
@@ -37,13 +36,11 @@ module SQA
           end
         end
 
-
         def print_fpop_direction_line(result)
           magnitude = result[:magnitude].round(2)
           risk = result[:risk].round(2)
           puts "  Direction: #{result[:direction]}, Magnitude: #{magnitude}%, Risk: #{risk}%"
         end
-
 
         def print_fpop_quality_opportunities(analysis, dates)
           puts "\nHigh-Quality Opportunities (magnitude ≥ 5%, risk ≤ 25%):"
@@ -58,7 +55,6 @@ module SQA
           end
         end
 
-
         def fpop_quality_indices(analysis)
           SQA::FPOP.filter_by_quality(
             analysis,
@@ -68,7 +64,6 @@ module SQA
           )
         end
       end
-
 
       # Prints market-regime detection output. Extracted from Analyze because
       # this reporting concern only depends on the stock and the regime_window
@@ -81,7 +76,6 @@ module SQA
           print_current_regime(regime)
           print_regime_history(stock, regime_window)
         end
-
 
         def print_current_regime(regime)
           strength_str = numeric_or_upcased(regime[:strength]) { |v| v.round(2).to_s }
@@ -97,11 +91,9 @@ module SQA
           HEREDOC
         end
 
-
         def numeric_or_upcased(value)
           value.is_a?(Numeric) ? yield(value) : value.to_s.upcase
         end
-
 
         def print_regime_history(stock, regime_window)
           puts "\nRecent Regime Changes:"
@@ -111,7 +103,6 @@ module SQA
           end
         end
       end
-
 
       # Prints seasonal-pattern analysis output. Extracted from Analyze because
       # this reporting concern only depends on the stock, not on the rest of
@@ -127,7 +118,6 @@ module SQA
           print_quarterly_returns(seasonal)
         end
 
-
         def print_seasonal_summary(seasonal)
           puts <<~HEREDOC
 
@@ -140,7 +130,6 @@ module SQA
           HEREDOC
         end
 
-
         def print_monthly_returns(seasonal)
           puts "\nMonthly Average Returns:"
           seasonal[:monthly_returns].sort_by { |m, _| m }.each do |month, stats|
@@ -149,14 +138,12 @@ module SQA
           end
         end
 
-
         def print_quarterly_returns(seasonal)
           puts "\nQuarterly Average Returns:"
           seasonal[:quarterly_returns].sort_by { |q, _| q }.each do |quarter, stats|
             puts "  Q#{quarter}: #{signed_percent(stats[:avg_return])}% (#{stats[:count]} samples)"
           end
         end
-
 
         def signed_percent(value)
           avg_return = value.round(2)
@@ -196,7 +183,6 @@ module SQA
           )
         end
 
-
         def add_command_options(opts)
           opts.on('-t', '--ticker SYMBOL', 'Stock ticker symbol (default: AAPL)') do |ticker|
             @options[:ticker] = ticker.upcase
@@ -210,7 +196,6 @@ module SQA
           add_window_options(opts)
         end
 
-
         def add_window_options(opts)
           opts.on('--fpop-periods DAYS', Integer, 'FPOP analysis periods (default: 10)') do |periods|
             @options[:fpop_periods] = periods
@@ -220,7 +205,6 @@ module SQA
             @options[:regime_window] = window
           end
         end
-
 
         def banner
           ANALYZE_BANNER_TEXT
@@ -241,7 +225,6 @@ module SQA
           @options[:methods].include?('all') ? %w[fpop regime seasonal] : @options[:methods]
         end
 
-
         def run_analysis_method(method, stock)
           case method
           when 'fpop' then run_fpop_analysis(stock)
@@ -251,25 +234,20 @@ module SQA
           end
         end
 
-
         def run_fpop_analysis(stock)
           print_section 'FPL (Future Period Loss/Profit) Analysis'
           analyze_fpop(stock, @options[:fpop_periods])
         end
-
 
         def run_regime_analysis(stock)
           print_section 'Market Regime Detection'
           analyze_regime(stock, @options[:regime_window])
         end
 
-
         def run_seasonal_analysis(stock)
           print_section 'Seasonal Pattern Analysis'
           analyze_seasonal(stock)
         end
-
-
       end
     end
   end

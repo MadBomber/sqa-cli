@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                        'portfolio optimization, and real-time market analysis.'
   spec.homepage      = 'https://github.com/madbomber/sqa-cli'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 4.0'
 
   spec.metadata['homepage_uri']          = spec.homepage
   spec.metadata['source_code_uri']       = 'https://github.com/madbomber/sqa-cli'
@@ -40,18 +40,23 @@ Gem::Specification.new do |spec|
 
   # Runtime dependencies
   spec.add_dependency 'debug_me', '~> 1.0'
-  spec.add_dependency 'sqa', '~> 0.0.27'
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'myway_config'  # XDG-aware configuration management (extends anyway_config)
+  spec.add_dependency 'nokogiri'
+  spec.add_dependency 'sqa'
   spec.add_dependency 'tty-table', '~> 0.12'
 
   # Development dependencies
-  spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'flay'
   spec.add_development_dependency 'flog'
   spec.add_development_dependency 'minitest', '~> 5.20'
   spec.add_development_dependency 'minitest-reporters', '~> 1.6'
   spec.add_development_dependency 'racc' # flog/flay transitively need this on Ruby 4+
+  spec.add_development_dependency 'reek' # code smell gate (rake reek_check)
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rubocop', '~> 1.50'
+  spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.35'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'webmock'
 end

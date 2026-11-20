@@ -54,3 +54,6 @@ site/
 
 # Gemfile.lock (uncomment for gems, keep for applications)
 # Gemfile.lock
+
+# Local cross-repo dev lockfile (Gemfile.local)
+/Gemfile.local.lock

@@ -4,6 +4,7 @@
 # gem's entry point: spec.name is 'sqa-cli' and Bundler/RubyGems resolve
 # `require 'sqa-cli'` to lib/sqa-cli.rb by exact match on the gem name.
 # Renaming this file would break that require path for all consumers.
+# (Naming/FileName is excluded for this path in .rubocop.yml.common.)
 
 # Load the SQA gem first (the actual financial analysis library)
 require 'sqa'

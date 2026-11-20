@@ -2,6 +2,6 @@
 
 module SQA
   module CLI
-    VERSION = '0.0.3'
+    VERSION = '0.3.0'
   end
 end

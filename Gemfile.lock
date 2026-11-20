@@ -1,39 +1,12 @@
-GIT
-  remote: https://github.com/madbomber/debug_me.git
-  revision: 1569ff28858261e0ecc458dd82f7d7cad569cd47
-  specs:
-    debug_me (1.1.1)
-
-PATH
-  remote: ../sqa
-  specs:
-    sqa (0.0.38)
-      alphavantage
-      csv
-      eps
-      faraday
-      hashie
-      kbs
-      lite-statistics
-      logger
-      nenv
-      ostruct
-      polars-df
-      redis
-      regent
-      ruby_llm
-      ruby_llm-mcp
-      shared_tools
-      sqa-tai
-      toml-rb
-      tty-table
-
 PATH
   remote: .
   specs:
-    sqa-cli (0.0.3)
+    sqa-cli (0.3.0)
       debug_me (~> 1.0)
-      sqa (~> 0.0.27)
+      faraday
+      myway_config
+      nokogiri
+      sqa
       tty-table (~> 0.12)
 
 GEM
@@ -44,15 +17,50 @@ GEM
     alphavantage (1.2.0)
       faraday (~> 1.4)
       hashie (~> 4.1)
-    ansi (1.5.0)
+    ansi (1.6.0)
+    anyway_config (2.8.1)
+      ruby-next-core (~> 1.0)
     ast (2.4.3)
     base64 (0.3.0)
     bigdecimal (4.1.2)
     builder (3.3.0)
     citrus (3.0.2)
+    concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
-    csv (3.3.5)
-    docile (1.4.1)
+    crack (1.0.1)
+      bigdecimal
+      rexml
+    csv (3.3.6)
+    debug_me (1.1.3)
+    dry-configurable (1.4.0)
+      dry-core (~> 1.0)
+      zeitwerk (~> 2.6)
+    dry-core (1.2.0)
+      concurrent-ruby (~> 1.0)
+      logger
+      zeitwerk (~> 2.6)
+    dry-inflector (1.3.1)
+    dry-initializer (3.2.0)
+    dry-logic (1.6.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-schema (1.16.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 1.0, >= 1.0.1)
+      dry-core (~> 1.1)
+      dry-initializer (~> 3.2)
+      dry-logic (~> 1.6)
+      dry-types (~> 1.9, >= 1.9.1)
+      zeitwerk (~> 2.6)
+    dry-types (1.9.1)
+      bigdecimal (>= 3.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0)
+      dry-inflector (~> 1.0)
+      dry-logic (~> 1.4)
+      zeitwerk (~> 2.6)
     eps (0.7.0)
       lightgbm (>= 0.4)
       matrix
@@ -94,13 +102,15 @@ GEM
       prism (~> 1.7)
       sexp_processor (~> 4.8)
     hana (1.3.7)
+    hashdiff (1.2.1)
     hashie (4.1.0)
-    http-2 (1.2.0)
-    httpx (1.8.0)
+    http-2 (1.2.1)
+    httpx (1.8.1)
       http-2 (>= 1.2.0)
-    json (2.16.0)
-    json-schema (5.1.0)
+    json (2.21.2)
+    json-schema (6.2.0)
       addressable (~> 2.8)
+      bigdecimal (>= 3.1, < 5)
     json_schemer (2.5.0)
       bigdecimal
       hana (~> 1.3)
@@ -108,8 +118,8 @@ GEM
       simpleidn (~> 0.2)
     kbs (0.2.1)
       sqlite3 (>= 1.6)
-    language_server-protocol (3.17.0.5)
-    lightgbm (0.4.4)
+    language_server-protocol (3.17.0.6)
+    lightgbm (0.5.0)
       ffi
     lint_roller (1.1.0)
     lite-memoize (1.1.1)
@@ -118,57 +128,66 @@ GEM
     logger (1.7.0)
     marcel (1.2.1)
     matrix (0.4.3)
-    minitest (5.26.1)
-    minitest-reporters (1.7.1)
+    minitest (5.27.0)
+    minitest-reporters (1.8.0)
       ansi
       builder
-      minitest (>= 5.0)
+      minitest (>= 5.0, < 7)
       ruby-progressbar
     multipart-post (2.4.1)
+    myway_config (0.1.2)
+      anyway_config (>= 2.0)
     nenv (0.3.0)
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
-    ostruct (0.6.3)
-    parallel (1.27.0)
-    parser (3.3.10.0)
+    parallel (2.1.0)
+    parser (3.3.12.0)
       ast (~> 2.4.1)
       racc
     pastel (0.8.0)
       tty-color (~> 0.5)
     path_expander (2.0.1)
-    polars-df (0.26.0-arm64-darwin)
+    polars-df (0.27.0-arm64-darwin)
     prism (1.9.0)
     public_suffix (7.0.5)
     racc (1.8.1)
     rainbow (3.1.1)
-    rake (13.3.1)
-    redis (5.4.1)
-      redis-client (>= 0.22.0)
-    redis-client (0.30.0)
+    rake (13.4.2)
+    redis (6.0.0)
+      redis-client (= 0.30.1)
+    redis-client (0.30.1)
       connection_pool
+    reek (6.5.0)
+      dry-schema (~> 1.13)
+      logger (~> 1.6)
+      parser (~> 3.3.0)
+      rainbow (>= 2.0, < 4.0)
+      rexml (~> 3.1)
     regent (0.3.3)
       pastel (~> 0.8.0)
       tty-spinner (~> 0.9.3)
       zeitwerk (~> 2.7)
-    regexp_parser (2.11.3)
-    rubocop (1.81.7)
+    regexp_parser (2.12.0)
+    rexml (3.4.4)
+    rubocop (1.89.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
-      parallel (~> 1.10)
+      parallel (>= 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.47.1, < 2.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.48.0)
+    rubocop-ast (1.50.0)
       parser (>= 3.3.7.2)
-      prism (~> 1.4)
-    rubocop-minitest (0.38.2)
+      prism (~> 1.7)
+    rubocop-minitest (0.40.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
+    ruby-next-core (1.2.1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     ruby_llm (1.16.0)
@@ -181,9 +200,9 @@ GEM
       marcel (~> 1)
       ruby_llm-schema (~> 0)
       zeitwerk (~> 2)
-    ruby_llm-mcp (1.0.0)
+    ruby_llm-mcp (1.0.1)
       httpx (~> 1.4)
-      json-schema (~> 5.0)
+      json-schema (>= 5.0, < 7)
       json_schemer (~> 2.4)
       ruby_llm (~> 1.9)
       zeitwerk (~> 2)
@@ -195,13 +214,26 @@ GEM
       ruby_llm
       ruby_llm-mcp
       zeitwerk
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-html (0.13.2)
-    simplecov_json_formatter (0.1.4)
+    simplecov (1.0.3)
     simpleidn (0.2.3)
+    sqa (0.0.38)
+      alphavantage
+      csv
+      eps
+      faraday
+      hashie
+      kbs
+      lite-statistics
+      nenv
+      polars-df
+      redis
+      regent
+      ruby_llm
+      ruby_llm-mcp
+      shared_tools
+      sqa-tai
+      toml-rb
+      tty-table
     sqa-tai (0.1.2)
       ta_lib_ffi (~> 0.3)
     sqlite3 (2.9.5-arm64-darwin)
@@ -212,7 +244,7 @@ GEM
     strings-ansi (0.2.0)
     ta_lib_ffi (0.3.0)
       fiddle (~> 1.1)
-    toml-rb (4.2.0)
+    toml-rb (4.2.1)
       citrus (~> 3.0, > 3.0)
       racc (~> 1.7)
     tty-color (0.6.0)
@@ -226,25 +258,29 @@ GEM
       tty-screen (~> 0.8)
     unicode-display_width (2.6.0)
     unicode_utils (1.4.0)
-    zeitwerk (2.8.2)
+    webmock (3.26.2)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   arm64-darwin-25
 
 DEPENDENCIES
-  bundler (~> 2.0)
-  debug_me!
+  bundler
   flay
   flog
   minitest (~> 5.20)
   minitest-reporters (~> 1.6)
   racc
   rake (~> 13.0)
-  rubocop (~> 1.50)
+  reek
+  rubocop
   rubocop-minitest (~> 0.35)
   simplecov
-  sqa!
   sqa-cli!
+  webmock
 
 BUNDLED WITH
    2.7.2

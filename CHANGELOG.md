@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-02
+- Coordinated version bump to v0.3.0 across the SQA workspace.
+
 ## [0.0.2] 2025-11-12
 ### Added
 - New `show` command to display stock price data with technical indicators in ASCII table format

@@ -23,7 +23,6 @@ module SQA
           end
         end
 
-
         def rsi_trade_signal(vector, period, buy_threshold, sell_threshold)
           return :hold unless vector.respond_to?(:prices) && (vector.prices&.size&.>= period)
 
@@ -32,7 +31,6 @@ module SQA
         rescue StandardError
           :hold
         end
-
 
         def rsi_signal(current_rsi, buy_threshold, sell_threshold)
           if current_rsi < buy_threshold
@@ -43,7 +41,6 @@ module SQA
             :hold
           end
         end
-
 
         def run_fitness_backtest(stock, strategy)
           backtest = SQA::Backtest.new(
@@ -56,7 +53,6 @@ module SQA
           backtest.run
         end
       end
-
 
       # Prints gene constraints and evolution progress/results. Extracted from
       # Genetic because this reporting concern is independent of building or
@@ -71,7 +67,6 @@ module SQA
           puts "  Sell Threshold: #{gene_ranges[:min_sell]}-#{gene_ranges[:max_sell]}"
         end
 
-
         def print_evolution_results(best)
           puts "\nBest Parameters Found:"
           puts "  RSI Period: #{best.genes[:period]}"
@@ -79,7 +74,6 @@ module SQA
           puts "  Sell Threshold: #{best.genes[:sell_threshold]}"
           puts "  Fitness (Total Return): #{best.fitness.round(2)}%"
         end
-
 
         def print_evolution_history(program)
           puts "\nEvolution History:"
@@ -124,7 +118,6 @@ module SQA
           super.merge(GENETIC_DEFAULT_OPTIONS)
         end
 
-
         def add_command_options(opts)
           opts.on('-p', '--population SIZE', Integer, 'Population size (default: 20)') do |size|
             @options[:population] = size
@@ -137,7 +130,6 @@ module SQA
           add_rate_options(opts)
         end
 
-
         def add_rate_options(opts)
           opts.on('-m', '--mutation-rate RATE', Float, 'Mutation rate (default: 0.15)') do |rate|
             @options[:mutation_rate] = rate
@@ -147,7 +139,6 @@ module SQA
             @options[:crossover_rate] = rate
           end
         end
-
 
         def banner
           GENETIC_BANNER_TEXT
@@ -166,7 +157,6 @@ module SQA
           run_best_strategy_backtest(stock, best)
         end
 
-
         private
 
         def configured_genetic_program(stock)
@@ -176,7 +166,6 @@ module SQA
           define_fitness(program, stock)
           program
         end
-
 
         def evolve_program(program)
           print_section 'Starting Evolution...'
@@ -188,7 +177,6 @@ module SQA
           best
         end
 
-
         def build_genetic_program(stock)
           SQA::GeneticProgram.new(
             stock: stock,
@@ -199,7 +187,6 @@ module SQA
           )
         end
 
-
         def define_genes(program)
           program.define_genes(
             period: (@options[:min_period]..@options[:max_period]).to_a,
@@ -208,13 +195,11 @@ module SQA
           )
         end
 
-
         def define_fitness(program, stock)
           program.fitness do |genes|
             evaluate_fitness(stock, genes)
           end
         end
-
 
         def evaluate_fitness(stock, genes)
           strategy = create_rsi_strategy(
@@ -229,7 +214,6 @@ module SQA
           puts "  Backtest failed for #{genes}: #{e.message}" if @options[:verbose]
           -100.0
         end
-
 
         def run_best_strategy_backtest(stock, best)
           best_strategy = create_rsi_strategy(
