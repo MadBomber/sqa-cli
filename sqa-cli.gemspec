@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                        'portfolio optimization, and real-time market analysis.'
   spec.homepage      = 'https://github.com/madbomber/sqa-cli'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 4.0'
 
   spec.metadata['homepage_uri']          = spec.homepage
   spec.metadata['source_code_uri']       = 'https://github.com/madbomber/sqa-cli'
